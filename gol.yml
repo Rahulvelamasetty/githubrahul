@@ -1,7 +1,7 @@
 ---
--name: game of life
- hosts: all
- become: yes
+- name: game of life
+    hosts: all
+    become: yes
  tasks:
   - name: install java
     ansible.builtin.apt:
@@ -10,9 +10,9 @@
       state: present
   - name: install tomcat
     ansible.builtin.apt:
-     name: tomcat
+      name: tomcat
     update_cache: yes
-    state: present
+     state: present
     name: download war file
   ansible.builtin.get_url:name:
   ansible.builtin.get_url:
