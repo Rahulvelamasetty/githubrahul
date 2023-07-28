@@ -1,0 +1,20 @@
+---
+- name: game of life
+    hosts: all
+    become: yes
+ tasks:
+  - name: install java
+    ansible.builtin.apt:
+      name: openjdk-8-jdk
+      update_cache: yes
+      state: present
+  - name: install tomcat
+    ansible.builtin.apt:
+      name: tomcat
+    update_cache: yes
+     state: present
+    name: download war file
+  ansible.builtin.get_url:name:
+  ansible.builtin.get_url:
+    url: https://referenceapplicationskhaja.s3.us-west-2.amazonaws.com/gameoflife.war
+    dest: /var/lib/tomcat9/webapps
